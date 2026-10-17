@@ -1,0 +1,16 @@
+
+<article class="product-card">
+  <img [src]="product().image" [alt]="product().name" />
+
+  <h3>{{ product().name }}</h3>
+  <p>{{ product().description }}</p>
+
+  <strong>
+    {{ product().price | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+  </strong>
+
+  <button (click)="addToCart.emit(product())">
+    Adicionar ao carrinho
+  </button>
+</article>
+  

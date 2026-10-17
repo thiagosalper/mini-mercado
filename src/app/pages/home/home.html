@@ -1,0 +1,10 @@
+<h1>Nossa vitrine</h1>
+
+<section class="product-grid">
+  @for (product of products; track product.id) {
+    <app-product-card
+      [product]="product"
+      (addToCart)="cart.addProduct($event)"
+    />
+  }
+</section>
