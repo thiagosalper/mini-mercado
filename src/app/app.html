@@ -1,7 +1,7 @@
 <nav>
   <a routerLink="/">Minha Loja</a>
   |
-  <a routerLink="/cart">Carrinho ({{ cart.totalItems() }})</a>
+  <a routerLink="/cart">Carrinho ({{ (cart.totalItems$ | async) ?? 0 }})</a>
 </nav>
 
 <main>
