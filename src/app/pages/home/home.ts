@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
 import { ProductCard } from '../../features/products/product-card/product-card';
 import { Product } from '../../core/models/product';
-import { CartService } from '../../core/cart';
+import { Store } from '@ngrx/store';
+import { CartActions } from '../../core/store/cart.actions';
 
 @Component({
   imports: [ProductCard],
@@ -11,8 +11,13 @@ import { CartService } from '../../core/cart';
   templateUrl: './home.html',
 })
 export class Home {
-  private router = inject(Router)
-  cart = inject(CartService)
+  private readonly store = inject(Store)
+
+  addToCart(product: Product) {
+    this.store.dispatch(
+      CartActions.addProduct({ product })
+    )
+  }
 
   products: Product[] = [
     {
@@ -38,8 +43,4 @@ export class Home {
     }
   ];
 
-
-  // addProductToCart() {
-  //   this.router.navigate(['/cart'])
-  // }
 }

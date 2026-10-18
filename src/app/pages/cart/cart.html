@@ -1,41 +1,32 @@
 <h1>Meu carrinho</h1>
 
-
-@for (item of (cart.cartItems$ | async) ?? [];
+@for (item of (cartItems$ | async) ?? [];
       track item.product.id) {
   <div>
-
     <h3>{{ item.product.name }}</h3>
-
     <p>{{ item.product.description }}</p>
-
     <p>
       {{ item.product.price
         | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
     </p>
-
     <p>Quantidade: {{ item.quantity }}</p>
-
-    <button (click)="cart.removeProduct(item.product.id)">
+    <button (click)="removeProduct(item.product.id)">
       Remover
     </button>
   </div>
 } @empty {
   <p>Seu carrinho está vazio.</p>
 }
+<hr />
+<p>
+  Unidades: {{ (totalItems$ | async ) ?? 0 }}
+</p>
+<h2>
+  Total:
+  {{ (totalPrice$ | async) ?? 0
+    | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+</h2>
 
-  <hr />
-
-  <p>
-    Unidades: {{ (cart.totalItems$ | async ) ?? 0 }}
-  </p>
-
-  <h2>
-    Total:
-    {{ (cart.totalPrice$ | async) ?? 0
-      | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
-  </h2>
-
-  <button (click)="cart.clearCart()">
-    Limpar carrinho
-  </button>
+<button (click)="clearCart()">
+  Limpar carrinho
+</button>

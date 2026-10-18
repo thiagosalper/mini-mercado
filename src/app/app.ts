@@ -1,7 +1,8 @@
 import { Component, signal, inject } from '@angular/core';
 import { RouterLink, RouterOutlet } from '@angular/router';
-import { CartService } from './core/cart';
 import { AsyncPipe } from '@angular/common';
+import { selectTotalItems } from './core/store/cart.selectors';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +13,6 @@ import { AsyncPipe } from '@angular/common';
 export class App {
   protected readonly title = signal('mini-mercado');
 
-  cart = inject(CartService)
+  private readonly store = inject(Store)
+  readonly totalItems$ = this.store.select(selectTotalItems)
 }
