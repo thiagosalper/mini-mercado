@@ -1,33 +1,28 @@
 <h1>Meu carrinho</h1>
 
-@if (cart.cartItems().length === 0) {
+@for (item of cart.cartItems() ?? [];
+      track item.product.id) {
+  <div class="cartItem">
+    <h3>{{ item.product.name }}</h3>
+    <span>
+      Quantidade: {{ item.quantity }} ----- {{ item.product.price
+        | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
+    </span>
+    <button (click)="cart.removeProduct(item.product.id)">
+      Remover
+    </button>
+  </div>
+} @empty {
   <p>Seu carrinho está vazio.</p>
-} @else {
-  @for (item of cart.cartItems(); track item.product.id) {
-    <article>
-      <h3>{{ item.product.name }}</h3>
-      <p>Quantidade: {{ item.quantity }}</p>
-
-      <p>
-        {{ item.product.price * item.quantity
-          | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
-      </p>
-
-      <button (click)="cart.removeProduct(item.product.id)">
-        Remover
-      </button>
-    </article>
-  }
-
-  <hr />
-
-  <h2>
-    Total:
-    {{ cart.totalPrice()
-      | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
-  </h2>
-
-  <button (click)="cart.clearCart()">
-    Limpar carrinho
-  </button>
 }
+
+<button (click)="cart.clearCart()">
+  Limpar carrinho
+</button>
+
+<br />
+<br />
+<br />
+<br />
+
+  <img src="./assets/internet2.gif" width="128" />
