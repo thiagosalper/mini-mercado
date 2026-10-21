@@ -12,8 +12,3 @@ img {
   height: 180px;
   object-fit: contain;
 }
-
-button {
-  padding: 10px;
-  cursor: pointer;
-}

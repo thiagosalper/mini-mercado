@@ -2,14 +2,12 @@
 
 @for (item of (cartItems$ | async) ?? [];
       track item.product.id) {
-  <div>
+  <div class="cartItem">
     <h3>{{ item.product.name }}</h3>
-    <p>{{ item.product.description }}</p>
-    <p>
-      {{ item.product.price
+    <span>
+      Quantidade: {{ item.quantity }} ----- {{ item.product.price
         | currency:'BRL':'symbol':'1.2-2':'pt-BR' }}
-    </p>
-    <p>Quantidade: {{ item.quantity }}</p>
+    </span>
     <button (click)="removeProduct(item.product.id)">
       Remover
     </button>
@@ -30,3 +28,10 @@
 <button (click)="clearCart()">
   Limpar carrinho
 </button>
+
+<br />
+<br />
+<br />
+<br />
+
+  <img src="./assets/internet2.gif" width="128" />
