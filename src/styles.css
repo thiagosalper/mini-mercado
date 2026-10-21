@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 h1 {
   color:deeppink;
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 48pt;
 }
 
@@ -10,6 +9,7 @@ a {
 }
 
 body {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   font-size: 16pt;
   margin: 0px;
 }
