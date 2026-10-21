@@ -1,7 +1,13 @@
-<h1>Nossa vitrine</h1>
+<h1>Nossa vitrine 
+  <img src="./assets/internet1.gif" width="42" /></h1>
 
 <section class="product-grid">
-  @for (product of products; track product.id) {
+
+  <!-- @if (prodError$) {
+    <span>{{ prodError$ }}</span>
+  } -->
+  
+  @for (product of (products$ | async); track product.id) {
     <app-product-card
       [product]="product"
       (addToCart)="addToCart($event)"

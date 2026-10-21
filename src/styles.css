@@ -1,1 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+h1 {
+  color:deeppink;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 48pt;
+}
+
+a {
+  color: blue;
+}
+
+body {
+  font-size: 16pt;
+  margin: 0px;
+}
+
+
+button {
+  padding: 10px;
+  cursor: pointer;
+  background-color: aqua;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color:blueviolet;
+  color: white;
+}
+
+
+h3, h2 {
+  color:blueviolet;
+}
